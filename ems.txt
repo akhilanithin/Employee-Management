@@ -1,0 +1,38 @@
+
+
+            ---------Employee portal - user management system-------
+
+
+        1. Features
+            - login page- (username,password, login button)- admin
+            - Home page - admin dashboard 
+            - users list page - (new user button, display users details as a table)
+                - table should contains
+                    -(user id, username,email,status, action(edit, delete))
+            - users add page - (user id, username,email,status (dropdown: active,inactive) ) , button for cancel (clear the form) and save (add user to userslist)
+            - users edit page - same as add users
+        2. Components - 6 components
+        3. Modules - 2 Modules
+            - appModule - root : login component, home component, header component
+            - userModule : users list component,users add component, users edit component
+        4. Set up path for each component
+        5. Design the components
+        6. Creating a JSON Server for Employee portal - to run json file
+            - create a seperate folder for Server
+            - inside Server folder, create package.json file using command: npm init -y
+            - inside server folder, install json-server package : npm i json-server
+            - create .gitignore file in server folder, and add node_modules inside it
+            - create entry file (index.js) of your server folder,
+            - update script, start as node index.js in package.json file
+            - create db.json file in server folder to hold json content
+            - steps to generate json server, inside index.js file
+                - import json-server
+                - create our own server to run json file
+                - generate middleware to use in jsonserver
+                - set up path for db.json
+                - set up port for server
+                - use middleware, router, to server
+                - server listen/ run to request
+            - to run server app: use command- node index.js and open http://localhost:3000/ in browser
+        7. Steps to request login to server
+        8. create Angular service to make api call in front end

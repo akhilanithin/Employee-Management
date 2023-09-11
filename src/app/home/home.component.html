@@ -1,0 +1,41 @@
+<div  class="d-flex border border-light">
+  <div *ngIf="isOpen"
+    style="width: 200px; height: 90vh"
+    class="sidebar bg-info p-3 d-flex flex-column"
+  >
+    <a routerLink="/home">HOME</a>
+    <a routerLink="/users">USERS</a>
+
+    <button (click)="logout()" class="btn mt-auto text-light fw-bolder"><i class="fa-solid fa-right-from-bracket me-2"></i>LogOut </button>
+
+  </div>
+  <div class="dashboard p-3 w-100">
+    <div class="row">
+      <div class="col-lg-8">
+        <div style="height: 150px;background-image: url('https://static.vecteezy.com/system/resources/previews/000/664/771/original/banner-background-with-low-poly-design-vector.jpg'); background-size: cover;" class="admin-panel  rounded d-flex align-items-center shadow">
+        <h1 class="text-primary ms-5"><span (click)="menuBtnClick()" class="btn me-2"> <i class="fa-solid fa-bars text-primary"></i></span> Welcome <span> {{adminName}} </span></h1>
+        </div>
+
+        <div class="d-flex mt-3">
+          <div style="height: 400px;" class="col-lg-5 border rounded p-2 shadow">
+          <app-inline-calender></app-inline-calender>
+          </div>
+          <div class="col-lg-1"></div>
+          <div   style="height: 400px;" class="col-lg-6 border rounded p-2 shadow ">
+          <app-chart></app-chart>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div style="height: 400px;background-color: rgb(243, 199, 118);" class="admin-details border shadow rounded p-2">
+         <app-edit-admin (onUpdate)="updateAdminName($event)"></app-edit-admin>
+        </div>
+        <div style="height: 150px;background-image: url('https://static.vecteezy.com/system/resources/previews/000/664/771/original/banner-background-with-low-poly-design-vector.jpg'); background-size: cover;" class="random-user mt-2  rounded p-2 align-items-center d-flex justify-content-center fs-4 text-primary">
+          <i class="fa-users fa-solid me-2"></i> Employees : <span class="ms-2"> {{totalUserCount}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
