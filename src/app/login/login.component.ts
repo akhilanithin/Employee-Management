@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   //property
-  email:string=""
-  password:string=""
+  email:string="admin@demoapp.com"
+  password:string="demoapp123"
 
   constructor(private api:ApiService,private loginRouter:Router){}
 
