@@ -7,10 +7,17 @@ import { authGuard } from './guards/auth.guard';
 const routes: Routes = [
   //http://localhost:4200/users
   { path: 'users', canActivate:[authGuard], loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule) },
+
   //http://localhost:4200/
   {path:'', component:LoginComponent},
+  
   //http://localhost:4200/home
-  {path:'home', component:HomeComponent,canActivate:[authGuard]}
+  {path:'home', component:HomeComponent,canActivate:[authGuard]},
+
+    //http://localhost:4200/home
+    {path:'**',redirectTo:""}
+
+  
 ];
 
 @NgModule({

@@ -32,8 +32,8 @@ export class UsersListComponent implements OnInit {
         this.count = this.allUsers.length
       },
       error:(result:any)=>{
-        console.log(result);
-        alert("Error while fetching the data... Please try after some time!!!")
+        // console.log(result);
+        alert(`${result.message}`)
       }
     })
   }

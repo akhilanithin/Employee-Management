@@ -7,51 +7,53 @@ import { UserSchema } from '../modules/users/users.model';
 })
 export class ApiService {
 
-  base_url:string = "https://employee-portal-r3s1.onrender.com"
+  base_url: string = "https://employee-portal-r3s1.onrender.com"
 
-  constructor(private http:HttpClient) { }
+  
+
+  constructor(private http: HttpClient) { }
 
   //get admin details
-  adminDetails(){
+  adminDetails() {
     //api call to http://localhost:3000/users/1
     return this.http.get(`${this.base_url}/users/1`)
   }
 
   //getallusers
-  getallusers(){
-      //api call to http://localhost:3000/users
-      return this.http.get(`${this.base_url}/users`)
+  getallusers() {
+    //api call to http://localhost:3000/users
+    return this.http.get(`${this.base_url}/users`)
   }
-  
+
 
   //adduser
-  addUser(user:UserSchema){
+  addUser(user: UserSchema) {
     //api call to http://localhost:3000/users
-    return this.http.post(`${this.base_url}/users`,user)
+    return this.http.post(`${this.base_url}/users`, user)
   }
 
   //getexistinguser
-  getexistinguser(id:any){
+  getexistinguser(id: any) {
     //api call to http://localhost:3000/users/id
     return this.http.get(`${this.base_url}/users/${id}`)
   }
 
   //updateuser
-  updateuser(id:any,data:UserSchema){
+  updateuser(id: any, data: UserSchema) {
     //api call to http://localhost:3000/users/id
-    return this.http.put(`${this.base_url}/users/${id}`,data)
+    return this.http.put(`${this.base_url}/users/${id}`, data)
   }
-  
+
   //deleteuser
-  deleteuser(id:any){
+  deleteuser(id: any) {
     //api call to http://localhost:3000/users/id
     return this.http.delete(`${this.base_url}/users/${id}`)
   }
 
   //updateadmin
-  updateAdmin(adminBody:UserSchema){
+  updateAdmin(adminBody: UserSchema) {
     //api call to http://localhost:3000/users/1
-    return this.http.put(`${this.base_url}/users/1`,adminBody)
+    return this.http.put(`${this.base_url}/users/1`, adminBody)
   }
 
 }

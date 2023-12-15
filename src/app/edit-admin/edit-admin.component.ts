@@ -1,19 +1,20 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { UserSchema } from '../modules/users/users.model';
+import { ToasterService } from 'src/app/service/toaster.service';
 
 @Component({
   selector: 'app-edit-admin',
   templateUrl: './edit-admin.component.html',
   styleUrls: ['./edit-admin.component.css'],
 })
-export class EditAdminComponent {
+export class EditAdminComponent{
   url = './assets/images/img1.png';
   editAdminStatus: boolean = false;
   admin: UserSchema = {};
   @Output() onUpdate = new EventEmitter()
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService,private toaster:ToasterService) {
     this.api.adminDetails().subscribe({
       next: (res: UserSchema) => {
         console.log(res);
@@ -47,16 +48,19 @@ export class EditAdminComponent {
         //save details in local storage
         localStorage.setItem('admin_name', res.name);
         localStorage.setItem('admin_pswd', res.password);
-        alert('Admin details updated successfully...');
+        // alert('Admin details updated successfully...');
+        this.toaster.showSuccess("Admin details updated successfully...")
         this.editAdminStatus = false;
         this.onUpdate.emit(res.name)
       },
       error: (err: any) => {
         console.log(err);
-        alert('Updation failed!!! Server currently unavailable.');
+        // alert('Updation failed!!! Server currently unavailable.');
+        this.toaster.showError("Updation failed!!! Server currently unavailable.")
       },
     });
   }
+  
   cancel() {
     this.editAdminStatus = false;
   }

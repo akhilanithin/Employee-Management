@@ -1,11 +1,6 @@
 <div *ngIf="!editAdminStatus">
     <div class="admin-img text-center mt-5">
-      <img
-        width="200px"
-        height="200px"
-        class="img-fluid rounded"
-        [src]="url"
-        alt="profile"
+      <img width="200px"  height="200px" class="img-fluid rounded" [src]="url" alt="profile"
       />
     </div>
     <div class="admin-update text-center mt-3">
@@ -19,17 +14,12 @@
     <h5 class="mb-3">Edit Admin Details!</h5>
     <label >
         <input (change)="getFile($event)" type="file" style="display: none;">
-        <img
-        width="150px"
-        height="150px"
-        class="img-fluid rounded"
-        [src]="url"
-        alt="profile"
-      />
+        <img width="150px" height="150px" class="img-fluid rounded" [src]="url" alt="profile"/>
     </label>
     <input [(ngModel)]="admin.name" type="text" class="form-control mt-2" placeholder="Admin Name" >
     <input [(ngModel)]="admin.password" type="text" class="form-control mt-2" placeholder="Admin password">
-    <input (click)="cancel()" type="button" class="btn btn-primary mt-2 me-5" value="Cancel">
-
-    <input (click)="update()" type="button" class="btn btn-warning mt-2" value="Update">
+    <div class="d-flex justify-content-evenly mt-3">
+      <input (click)="cancel()" type="button" class="btn btn-primary mt-2 me-5" value="Cancel">
+      <input (click)="update()" type="button" class="btn btn-warning mt-2" value="Update">
+    </div>
 </div>

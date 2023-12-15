@@ -18,6 +18,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { HighchartsChartModule } from 'highcharts-angular';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatNativeDateModule,
     HighchartsChartModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ToastrModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

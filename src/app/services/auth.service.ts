@@ -7,7 +7,7 @@ export class AuthService {
 
   constructor() { }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return !!localStorage.getItem("admin_name")
   }
 }
